@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://level1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://raha.tscn" type="PackedScene" id=3]
+[ext_resource path="res://tileset/Background/Gray.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 2516.5, 63.8526 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="keha" parent="." instance=ExtResource( 2 )]
+
+[node name="Camera2D" type="Camera2D" parent="keha"]
+current = true
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( -131050, 0, 0, -131049, 0, 0, -65515, 0, 0, -65514, 0, 0, -65513, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 65536, 0, 0, 65556, 0, 0, 65557, 0, 0, 131072, 0, 0, 131073, 0, 0, 131089, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196624, 0, 0, 196625, 0, 0, 196626, 0, 0, 196628, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 262162, 0, 0, 262164, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0, 327697, 0, 0, 327698, 0, 0, 327700, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393236, 0, 0, 393237, 0, 0, 393238, 0, 0, 458772, 0, 0, 458773, 0, 0, 458774, 0, 0, 458775, 0, 0, 524311, 0, 0, 524312, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589847, 0, 0, 589848, 0, 0, 655373, 0, 0, 655374, 0, 0, 655383, 0, 0, 655384, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 0, 0, 720917, 0, 0, 720918, 0, 0, 720919, 0, 0 )
+
+[node name="kukkumine" type="Area2D" parent="."]
+position = Vector2( 128, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="kukkumine"]
+position = Vector2( 1048.5, 885.853 )
+shape = SubResource( 1 )
+
+[node name="Node2D" parent="." instance=ExtResource( 3 )]
+
+[node name="Node2D2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 384, 512 )
+
+[node name="Node2D3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1409, 639 )
+
+[node name="Node2D4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1536, -192 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+show_behind_parent = true
+margin_left = -1152.0
+margin_top = -640.0
+margin_right = 3008.0
+margin_bottom = 1536.0
+texture = ExtResource( 4 )
+expand = true
+
+[connection signal="body_entered" from="kukkumine" to="keha" method="_on_kukkumine_body_entered"]
